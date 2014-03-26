@@ -1,4 +1,4 @@
-vim_setup
+VIM Setup
 =========
 
-VIM setup/settings
+
