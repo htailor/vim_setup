@@ -9,9 +9,9 @@ set linespace=0
 " set fileencoding=utf-8
 set term=xterm-256color
 set background=dark
-set mouse=a
+" set mouse=a
 
-" set eventignore=CursorMoved		
+" set eventignore=CursorMoved
 set number													" Line numbers are good
 set backspace=indent,eol,start								" Allow backspace in insert mode
 set history=1000											" Store lots of :cmdline history
@@ -26,8 +26,7 @@ set hlsearch												" Highlight search terms...
 set incsearch												" ...dynamically as they are typed.
 
 set cursorline												" Sets the cursor line
-hi CursorLine cterm=NONE ctermbg=24 ctermfg=white			" Set cursor line (Dark cyan) characteiristics
-" hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white	" Set cursor line (Red) characteristics
+hi CursorLine cterm=NONE ctermbg=24 ctermfg=white			" Set cursor line highlight (Dark cyan) characteiristics
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -36,6 +35,14 @@ set hidden
 
 syntax on													" Turn on syntax highlighting
 filetype plugin indent on									" Turn on filetype detection, indent scripts and filetype plugins
+
+
+" ================ Spell Checker ====================
+
+nmap <silent> ss :set spell!<CR>							" Toggle spell checking on and off with ss
+
+hi SpellBad cterm=NONE ctermbg=darkred ctermfg=white		" Set bad spelling highlight (Red) characteristics
+set spelllang=en_gb											" Set region to British English
 
 " ================ Indentation ======================
 
@@ -79,9 +86,9 @@ set sidescroll=1
 
 " ================ Turn Off Swap Files ==============
 
-set noswapfile
-set nobackup
-set nowb
+set noswapfile												" Turn off swap files
+set nobackup												" Turn off backup files
+set nowb													" Don't create a backup when overwriting a file
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
