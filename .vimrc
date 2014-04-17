@@ -26,19 +26,16 @@ set hlsearch												" Highlight search terms...
 set incsearch												" ...dynamically as they are typed.
 
 set cursorline												" Sets the cursor line
-hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white		" Set cursor line characteristics
+hi CursorLine cterm=NONE ctermbg=24 ctermfg=white			" Set cursor line (Dark cyan) characteiristics
+" hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white	" Set cursor line (Red) characteristics
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 
 set hidden
 
-" File-type highlighting and configuration.
-
 syntax on													" Turn on syntax highlighting
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on									" Turn on filetype detection, indent scripts and filetype plugins
 
 " ================ Indentation ======================
 

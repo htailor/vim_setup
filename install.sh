@@ -12,7 +12,8 @@ function backup_old_vim_setup {
 
 	if [ -d ~/"$BACKUP_DIR" ]
 	then
-		echo "=> Found VIM backup directory"
+		echo "=> VIM backup directory already exists. The contents will be overwritten!!!"
+		pause "Press [Ctrl+c] to exit or the [Enter] key to continue..."
 	else
 		mkdir ~/$BACKUP_DIR
 	fi
@@ -28,6 +29,10 @@ function install_new_vim_setup {
 	cp -r $VIM_DIR ~
 
 	echo "=> Installation complete."
+}
+
+function pause() {
+	read -p "$*"
 }
 
 ### Main #################################################
