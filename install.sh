@@ -13,7 +13,7 @@ function backup_old_vim_setup {
 	if [ -d ~/"$BACKUP_DIR" ]
 	then
 		echo "=> VIM backup directory already exists. The contents will be overwritten!!!"
-		pause "Press [Ctrl+c] to exit or the [Enter] key to continue..."
+		pause "Press [Ctrl+c] to exit or [Enter] to continue..."
 	else
 		mkdir ~/$BACKUP_DIR
 	fi
