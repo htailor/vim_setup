@@ -18,7 +18,7 @@ if has('reltime')
     let g:syntastic_start = reltime()
 endif
 
-let g:syntastic_version = '3.4.0-7'
+let g:syntastic_version = '3.4.0-37'
 
 " Sanity checks {{{1
 
@@ -64,6 +64,7 @@ let g:syntastic_defaults = {
         \ 'loc_list_height':          10,
         \ 'quiet_messages':           {},
         \ 'reuse_loc_lists':          (v:version >= 704),
+        \ 'sort_aggregated_errors':   1,
         \ 'stl_format':               '[Syntax: line:%F (%t)]',
         \ 'style_error_symbol':       'S>',
         \ 'style_warning_symbol':     'S>',
@@ -295,8 +296,9 @@ function! s:CacheErrors(checker_names) " {{{2
         " }}}3
 
         let filetypes = s:resolveFiletypes()
-        let aggregate_errors = syntastic#util#var('aggregate_errors')
-        let decorate_errors = (aggregate_errors || len(filetypes) > 1) && syntastic#util#var('id_checkers')
+        let aggregate_errors = syntastic#util#var('aggregate_errors') || len(filetypes) > 1
+        let decorate_errors = aggregate_errors && syntastic#util#var('id_checkers')
+        let sort_aggregated_errors = aggregate_errors && syntastic#util#var('sort_aggregated_errors')
 
         let clist = []
         for type in filetypes
@@ -315,6 +317,10 @@ function! s:CacheErrors(checker_names) " {{{2
                     call loclist.decorate(cname)
                 endif
                 call add(names, cname)
+                if checker.getWantSort() && !sort_aggregated_errors
+                    call loclist.sort()
+                    call syntastic#log#debug(g:SyntasticDebugLoclist, 'sorted:', loclist)
+                endif
 
                 let newLoclist = newLoclist.extend(loclist)
 
@@ -352,6 +358,10 @@ function! s:CacheErrors(checker_names) " {{{2
         " }}}3
 
         call syntastic#log#debug(g:SyntasticDebugLoclist, 'aggregated:', newLoclist)
+        if sort_aggregated_errors
+            call newLoclist.sort()
+            call syntastic#log#debug(g:SyntasticDebugLoclist, 'sorted:', newLoclist)
+        endif
     endif
 
     let b:syntastic_loclist = newLoclist
