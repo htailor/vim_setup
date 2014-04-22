@@ -32,10 +32,8 @@ hi CursorLine cterm=NONE ctermbg=24 ctermfg=white			" Set cursor line highlight 
 " exist in the background without being in a window.
 
 set hidden
-
 syntax on													" Turn on syntax highlighting
 filetype plugin indent on									" Turn on filetype detection, indent scripts and filetype plugins
-
 
 " ================ Spell Checker ====================
 
@@ -94,8 +92,8 @@ set nowb													" Don't create a backup when overwriting a file
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 if has('persistent_undo')
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
-  set undodir=~/.vim/backups
+  silent !mkdir -p ~/.vim/.undo
+  set undodir=~/.vim/.undo
   set undofile
 endif
 
