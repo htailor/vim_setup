@@ -113,6 +113,15 @@ let g:airline#extensions#tabline#enabled=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+
+" CPP 
 let g:syntastic_cpp_check_header = 1						" Enable header file checking
 let g:syntastic_cpp_compiler_options = '-std=c++11'			" Enabled C++11 support
 let g:syntastic_cpp_config_file = '.syntastic_config'       " Config file that contains directories to search for header files
+
+" Python
+let g:syntastic_python_checkers = ['pep8']					" use pep8 standard
+let g:syntastic_python_pep8_args = '--ignore = E501'        " (pep8) E501 - ignore line limit error
+
+
+
