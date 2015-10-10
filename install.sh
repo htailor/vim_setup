@@ -12,7 +12,7 @@ function backup_old_vim_setup {
 
 	if [ -d ~/"$BACKUP_DIR" ]
 	then
-		echo "=> VIM backup directory already exists. The contents will be overwritten!!!"
+		echo "VIM backup directory already exists. The contents will be overwritten!!!"
 		pause "Press [Ctrl+c] to exit or [Enter] to continue..."
 	else
 		mkdir ~/$BACKUP_DIR
@@ -20,7 +20,7 @@ function backup_old_vim_setup {
 
 	cp ~/$VIMRC_FILE ~/$BACKUP_DIR
 	cp -r ~/$VIM_DIR ~/$BACKUP_DIR
-	echo "=> Backup complete."
+	echo "Backup complete."
 }
 
 function install_new_vim_setup {
@@ -28,7 +28,7 @@ function install_new_vim_setup {
 	cp $VIMRC_FILE ~
 	cp -r $VIM_DIR ~
 
-	echo "=> Installation complete."
+	echo "Installation complete."
 }
 
 function pause() {

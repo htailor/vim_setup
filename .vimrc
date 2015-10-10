@@ -10,7 +10,8 @@ set linespace=0
 set term=xterm-256color
 set background=dark
 " set mouse=a
-set paste                            " prevents incremental tabs when pasting into vim
+set clipboard=unnamed,unnamedplus							 " Allows copying to system clipboard
+set paste													 " prevents incremental tabs when pasting into vim
 
 " set eventignore=CursorMoved
 set number													 " Line numbers are good
@@ -52,7 +53,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-set nowrap													 " Don't wrap lines
+" set nowrap												 " Don't wrap lines
 " set wrapmargin=8											 " Number of characters from the right where wrapping starts.
 set linebreak												 " Wrap lines at convenient points
 
