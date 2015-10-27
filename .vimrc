@@ -11,7 +11,6 @@ set term=xterm-256color
 set background=dark
 " set mouse=a
 set clipboard=unnamed,unnamedplus							 " Allows copying to system clipboard
-set paste													 " prevents incremental tabs when pasting into vim
 
 " set eventignore=CursorMoved
 set number													 " Line numbers are good
