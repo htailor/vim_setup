@@ -28,6 +28,7 @@ set incsearch                                           " ...dynamically as they
 
 set cursorline                                          " Sets the cursor line
 hi CursorLine cterm=NONE ctermbg=24 ctermfg=white       " Set cursor line highlight (Dark cyan) characteiristics
+hi CursorLineNr term=bold cterm=NONE ctermfg=11 gui=bold guifg=Yellow
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
